@@ -1,4 +1,3 @@
-
 <html>
 <head>
   <!--Import Google Icon Font-->
@@ -11,16 +10,34 @@
   <title></title>
 </head>
 <body>
-          <div class="row">
+
+	<div id = "form">
+		<form action="simplex.php" method="post">
+			<h1 align = "center"><label for="simplex" align= "center">Simplex</label></h1>
+
+			<input type = "radio" name = "tipo" id = "maximizar" class = "radio" value = "Maximizar"> Maximizar					
+			<input type = "radio" name = "tipo" id = "minimizar" class = "radio" value = "Minimizar" checked> Minimizar	<br> <br>
+			
             <div class="input-field col s6">
-              <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-              <label for="first_name">First Name</label>
+              <label for="fo">Quantidade de variáveis função objetiva</label>
+              <input id="fo" name = "fo" type="text" class="validate" size = "2" required = "true">
             </div>
-          </div>
+            
+            <br><div class="input-field col s6">
+              <label for="restricoes">Quantidade de restrições</label>
+              <input id="restricoes" name="restricoes" type="text" class="validate" size = "2" required = "true"> 
+              <br><br><label for="tamRestricoes">Tamanho das restrições</label>
+              <input id="tamRestricoes" name="tamRestricoes" type="text" class="validate" size = "2" required = "true">                
+            </div>   				 
+            
+            <br> <input type = "submit" name = "button" value = "Gerar variáveis" id = "button">		            
+        
+	</div>
           
-<p><a href="rest/myresource">Jersey resource</a>
+<p>
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    
 </body>
 </html>
