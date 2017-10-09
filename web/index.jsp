@@ -18,20 +18,21 @@
 			<input type = "radio" name = "tipo" id = "maximizar" class = "radio" value = "Maximizar"> Maximizar					
 			<input type = "radio" name = "tipo" id = "minimizar" class = "radio" value = "Minimizar" checked> Minimizar	<br> <br>
 			
-            <div class="input-field col s6">
-              <label for="fo">Quantidade de variáveis função objetiva</label>
-              <input id="fo" name = "fo" type="text" class="validate" size = "2" required = "true">
-            </div>
+            		<div class="input-field col s6">
+              			<label for="fo">Quantidade de variáveis função objetiva</label>
+              			<input id="fo" name = "fo" type="text" class="validate" size = "2" required = "true">
+            		</div>
             
-            <br><div class="input-field col s6">
-              <label for="restricoes">Quantidade de restrições</label>
-              <input id="restricoes" name="restricoes" type="text" class="validate" size = "2" required = "true"> 
-              <br><br><label for="tamRestricoes">Tamanho das restrições</label>
-              <input id="tamRestricoes" name="tamRestricoes" type="text" class="validate" size = "2" required = "true">                
-            </div>   				 
+            		<br><div class="input-field col s6">
+              			<label for="restricoes">Quantidade de restrições</label>
+              			<input id="restricoes" name="restricoes" type="text" class="validate" size = "2" required = "true"> 
+              			<br><br><label for="tamRestricoes">Tamanho das restrições</label>
+              			<input id="tamRestricoes" name="tamRestricoes" type="text" class="validate" size = "2" required = "true">                
+            		</div>   				 
             
-            <br> <input type = "submit" name = "button" value = "Gerar variáveis" id = "button">		            
-        
+           		<br> <input type = "submit" name = "button" value = "Gerar variáveis" id = "button">		            
+       	 
+		</form>
 	</div>
           
 <p>
