@@ -1,18 +1,20 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-	<head>
-		<!--Import Google Icon Font-->
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<!--Import materialize.css-->
-		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-	
-		<!--Let browser know website is optimized for mobile-->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title></title>
-	</head>
+<head>
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+	<!--Let browser know website is optimized for mobile-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Simplex</title>
+</head>
 	<body>
 
 		<div id = "form">
-			<form action="simplex.php" method="post">
+			<form method="post" action="rest/myresource">
 				<h1 align = "center"><label for="simplex" align= "center">Simplex</label></h1>
 
 				<input type = "radio" name = "tipo" id = "maximizar" class = "radio" value = "Maximizar"> Maximizar					
