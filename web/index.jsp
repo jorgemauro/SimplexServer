@@ -5,6 +5,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!--Import materialize.css-->
 	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/ajustes.css"  media="screen,projection"/>
 
 	<!--Let browser know website is optimized for mobile-->
 	<meta charset="utf-8">
@@ -12,34 +13,44 @@
 	<title>Simplex</title>
 </head>
 	<body>
+            <nav class="cyan darken-3">
+                <div class="nav-wrapper ">
+                    <a href="#" class="brand-logo cyan darken-3 center">SIMPLEX</a>
+                </div>
+            </nav>
 
-		<div id = "form">
-			<form method="post" action="rest/myresource">
-				<h1 align = "center"><label for="simplex" align= "center">Simplex</label></h1>
-
-				<input type = "radio" name = "tipo" id = "maximizar" class = "radio" value = "Maximizar"> Maximizar					
-				<input type = "radio" name = "tipo" id = "minimizar" class = "radio" value = "Minimizar" checked> Minimizar	<br> <br>
-				
+            <div class="container">
+			<form method="post" action="rest/myresource" class="formulario">
+                <div class="card">
+				<p>
+				<input type = "radio" name = "tipo" id = "maximizar" class = "radio" value = "Maximizar"/>
+                    <label for="maximizar">Maximizar</label>
+				</p>
+				<p>
+				<input type = "radio" name = "tipo" id = "minimizar" class = "radio" value = "Minimizar" checked />
+					<label for="minimizar">Minimizar</label>
+				</p>
 				<div class="input-field col s6">
-					<label for="fo">Quantidade de variáveis função objetiva</label>
-					<input id="fo" name = "fo" type="text" class="validate" size = "2" required = "true">
+					<label for="funcoes">Digite a função objetiva</label>
+					<input id="funcoes" placeholder="Ex: 80x1+60x2=0" name = "funcoes" type="text" class="validate" size = "2" required = "true"/>
 				</div>
-            
-				<br>
-				<div class="input-field col s6">
-					<label for="restricoes">Quantidade de restrições</label>
-					<input id="restricoes" name="restricoes" type="text" class="validate" size = "2" required = "true"> 
-					<br><br><label for="tamRestricoes">Tamanho das restrições</label>
-					<input id="tamRestricoes" name="tamRestricoes" type="text" class="validate" size = "2" required = "true">                
-				</div>   				 
-            
-				<br> <input type = "submit" name = "button" value = "Gerar variáveis" id = "button">
-			</form>		                    
-		</div>
+                <div class="input-field col s6" id="R">
+                    <label for="restricoes_0">Tamanho das restrições <i class="small material-icons  tooltipped" id="alert"data-position="bottom" data-delay="50" data-tooltip="Para adicionar restrições clique no botão de adicionar">error_outline</i></label>
+                    <input id="restricoes_0" name="restricoes_0" type="text" class="validate" size = "2" required = "true"/>
+				</div>
+                    <div class="row">
+                <a class="btn-floating btn-large waves-effect waves-light cyan darken-3" id="adiciona"><i class="material-icons">add</i></a>
+                    </div>
+            </div>
+                <input type = "submit" name = "button" value = "Executar semplex" class="waves-effect waves-light btn" id = "button">
+			</form>
+            </div>
+    </div>
 
 		<!--Import jQuery before materialize.js-->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="js/materialize.min.js"></script>
-    
+		<script  type="text/javascript" src="js/ajuste.js"></script>
+
 	</body>
 </html>
