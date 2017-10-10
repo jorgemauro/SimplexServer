@@ -6,9 +6,8 @@
 	<!--Import materialize.css-->
 	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="css/ajustes.css"  media="screen,projection"/>
-
 	<!--Let browser know website is optimized for mobile-->
-	<meta charset="utf-8">
+	<meta charset="utf-8" content="application/json">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>Simplex</title>
 </head>
@@ -34,15 +33,15 @@
 					<label for="funcoes">Digite a função objetiva</label>
 					<input id="funcoes" placeholder="Ex: 80x1+60x2=0" name = "funcoes" type="text" class="validate" size = "2" required = "true"/>
 				</div>
+                    <div id="n_restricao" name="n_restricao" /></div>
                 <div class="input-field col s6" id="R">
-                    <label for="restricoes_0">Tamanho das restrições <i class="small material-icons  tooltipped" id="alert"data-position="bottom" data-delay="50" data-tooltip="Para adicionar restrições clique no botão de adicionar">error_outline</i></label>
-                    <input id="restricoes_0" name="restricoes_0" type="text" class="validate" size = "2" required = "true"/>
+                    <label for="restricoes.1">Restrições: </label><i class="small material-icons  tooltipped alerta" id="alert"data-position="bottom" data-delay="50" data-tooltip="Para adicionar restrições clique no botão de adicionar">error_outline</i>
+                    <input id="restricoes.1" name="restricoes.1" type="text" class="validate restrict" size = "2" required = "true"/>
 				</div>
                     <div class="row">
                 <a class="btn-floating btn-large waves-effect waves-light cyan darken-3" id="adiciona"><i class="material-icons">add</i></a>
                     </div>
-            </div>
-                <input type = "submit" name = "button" value = "Executar semplex" class="waves-effect waves-light btn" id = "button">
+                <input type = "submit" name = "button" value = "Executar semplex" class="waves-effect waves-light btn center-align  cyan darken-3 valign-wrapper" id = "button">
 			</form>
             </div>
     </div>

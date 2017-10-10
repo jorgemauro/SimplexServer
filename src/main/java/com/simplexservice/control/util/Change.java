@@ -37,4 +37,9 @@ public final class Change {
             System.out.println(" ");
         }
     }
+    public static BigDecimal[] toGheter(BigDecimal a, BigDecimal[] b ){
+        BigDecimal[] c=new BigDecimal[]{a};
+        BigDecimal[] concat=new BigDecimal[c.length+b.length];
+        return concat;
+    }
 }

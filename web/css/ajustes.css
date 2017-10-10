@@ -1,9 +1,16 @@
 #adiciona{
     position: fixed;
-    bottom: 15px;
-    right: 15px;
+    bottom: 50px;
+    right: 75px;
 
 }
 .formulario{
+    padding: 1%;
+}
+.card{
     padding: 5%;
+}
+.alerta{
+    padding-left: 13%;
+    padding-top: 1%;
 }

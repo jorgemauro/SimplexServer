@@ -1,4 +1,6 @@
 $('#adiciona').on('click',function(){
+    var i = $('.restrict').length+1;
+    console.log(i);
+    return $('<div><label for="restricoes.'+i+'">Tamanho das restrições </label> <input id="restricoes.'+i+'" name="restricoes" type="text" class="validate restrict" size = "2" required = "true"/></div>').appendTo($('#R'));
 
-    return $('<label for="restricoes_0">Tamanho das restrições </label> <input id="restricoes_0" name="restricoes_0" type="text" class="validate" size = "2" required = "true"/>').appendTo($('#R'));
-    });
+});
