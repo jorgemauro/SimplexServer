@@ -5,6 +5,10 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Map;
 
+
+/**
+ * Classe que representa a tabela, matriz de execucao.
+ * */
 public class Table {
 
     public int[] bVar;
@@ -13,7 +17,10 @@ public class Table {
 
     public static final int colML=0;
     public static final int linhaFO=0;
-
+    
+	/**
+	 * Construtor que inicializa os atributos e instancia o objeto matrix.
+	 * */
     public Table(Map<Integer,BigDecimal[]>fx,int nbVarq){
         this.bVar=new int[fx.size()];
         this.bVar[0]= linhaFO;
@@ -37,10 +44,21 @@ public class Table {
             }
         }
     }
+    
+    
+    /**
+     * Construtor padrao
+     * */
     public Table(){
 
     }
 
+
+	/**
+	 * Multiplica a linha pelo inverso.
+	 * @param lineAccept - linha a ser manipulada.
+	 * @param inversAccept - BigDecimal contendo o inverso selecionado.
+	 * */
     public void mulLineInverse(int lineAccept, BigDecimal inversAccept){
         Cell cell;
         for(int i=0;i<matrix[1].length; i++){
@@ -51,7 +69,13 @@ public class Table {
         }
 
     }
-
+    
+    
+	/**
+	 * Multiplica a coluna pelo inverso.
+	 * @param colAccept - coluna a ser manipulada.
+	 * @param inversAccept - BigDecimal contendo o inverso selecionado.
+	 * */
     public void mulColInverse(int colAccept, BigDecimal inversAccept){
         Cell cell;
         inversAccept=inversAccept.multiply(new BigDecimal(-1).setScale(4,RoundingMode.HALF_UP));
@@ -64,6 +88,11 @@ public class Table {
 
     }
 
+
+	/**
+	 * Verifica a celula da coluna inferior.
+	 * @param colAccept - inteiro indicando a coluna referencia.
+	 * */
     public void chkCellColInf(int colAccept){
         Cell cell;
         for(int i=0;i<matrix.length;i++){
@@ -71,6 +100,12 @@ public class Table {
             cell.setChkCellInf(true);
         }
     }
+    
+    
+    /**
+	 * Verifica a celula da linha superior.
+	 * @param lineAccept - inteiro indicando a linha referencia.
+	 * */
     public void chkCellLineSup(int lineAccept){
         Cell cell;
         for(int i=0;i<matrix[1].length;i++){
@@ -113,6 +148,11 @@ public class Table {
             }
         }
     }
+    
+    
+    /**
+     * Verifica se tem membro livre negativo.
+     * */
     public Boolean MlNegative(){
         Boolean ans=false;
         Table t=new Table();
@@ -125,35 +165,39 @@ public class Table {
         }
         return ans;
     }
-public void infForSup( int colAccept, int lineAccept){
-        Cell[][] reMatrix=new Cell[matrix.length][matrix[1].length];
-        for(int i =0;i<matrix.length;i++){
-            for(int j=0;j<matrix[1].length;j++){
-                reMatrix[i][j]= new Cell();
-            }
-        }
+    
+    
+	public void infForSup( int colAccept, int lineAccept){
+	        Cell[][] reMatrix=new Cell[matrix.length][matrix[1].length];
+	        for(int i =0;i<matrix.length;i++){
+	            for(int j=0;j<matrix[1].length;j++){
+	                reMatrix[i][j]= new Cell();
+	            }
+	        }
+	
+	    for(int j=0;j<matrix[1].length;j++){
+	        reMatrix[lineAccept][j].setCellSup(matrix[lineAccept][j].getCellInf());
+	    }
+	    for(int i=0;i<matrix.length;i++){
+	            reMatrix[i][colAccept].setCellSup(matrix[i][colAccept].getCellInf());
+	        }
+	
+	    matrix=reMatrix;
+	
+	}
 
-    for(int j=0;j<matrix[1].length;j++){
-        reMatrix[lineAccept][j].setCellSup(matrix[lineAccept][j].getCellInf());
-    }
-    for(int i=0;i<matrix.length;i++){
-            reMatrix[i][colAccept].setCellSup(matrix[i][colAccept].getCellInf());
-        }
+	public void SumNotSupAndInf(Table T,int colAccept, int lineAccept){
+	    Cell[][] matrix1 = T.getMatrix();
+	    for (int i=0;i<matrix.length;i++){
+	        for(int j=0;j<matrix[1].length;j++){
+	            if(i!=lineAccept && j!=colAccept){
+	                matrix[i][j].setCellSup(matrix1[i][j].getCellSup().stripTrailingZeros().add(matrix1[i][j].getCellInf()));
+	            }
+	        }
+	    }
+	}
 
-    matrix=reMatrix;
-
-}
-
-public void SumNotSupAndInf(Table T,int colAccept, int lineAccept){
-    Cell[][] matrix1 = T.getMatrix();
-    for (int i=0;i<matrix.length;i++){
-        for(int j=0;j<matrix[1].length;j++){
-            if(i!=lineAccept && j!=colAccept){
-                matrix[i][j].setCellSup(matrix1[i][j].getCellSup().stripTrailingZeros().add(matrix1[i][j].getCellInf()));
-            }
-        }
-    }
-}
+	/** Getters and Setters*/
     public Cell[][] getMatrix() {
         return matrix;
     }
@@ -180,6 +224,3 @@ public void SumNotSupAndInf(Table T,int colAccept, int lineAccept){
         return nbVar;
     }
 }
-
-
-

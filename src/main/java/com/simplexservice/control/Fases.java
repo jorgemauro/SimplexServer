@@ -5,14 +5,15 @@ import com.simplexservice.control.util.Change;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+
 /**
- * Classe responsavel pelas fases do Simplez.
+ * Classe responsavel pelas fases do Simplex.
  */
 public class Fases extends Table {
+	
     /**
-     * função responsavel pela avaliação da coluna dos membros livres
-     * para encontrar a linha aceita.
-     * @return A linha aceita na coluna livre.
+     * Avalia a coluna dos membros livres para encontrar a linha aceita.
+     * @return linecc - Inteiro indicando a linha aceita na coluna livre.
      */
     public int firstDotOne() {
         int lineAcc = -1;
@@ -26,10 +27,11 @@ public class Fases extends Table {
         return lineAcc;
     }
 
+
     /**
-     * função responsavel por encontrar a coluna do permitida a partir da linha.
-     * @param line linha em que buscaremos a coluna permitida.
-     * @return coluna permitida
+     * Funcao responsavel por encontrar a coluna permitida a partir da linha.
+     * @param line - inteiro indicando a linha em que buscaremos a coluna permitida.
+     * @return colAcc - inteiro contendo a coluna permitida.
      */
     public int firstDotTwo(int line){
         int colAcc = -1;
@@ -42,11 +44,12 @@ public class Fases extends Table {
         return colAcc;
     }
 
+
     /**
-     * parte três da primeira  encontra a linha aonde
-     * tem  menor quociente dos memrbos livre e tem o mesmo sinal no denominado e no numerador possuem o mesmo sinal.
-     * @param colAccept coluna aceita
-     * @return a linha do menor quociente
+     * Parte tres da primeira fase, encontra a linha com menor quociente dos membros livres cujo denominador e numerador 
+     * possuam o mesmo sinal.
+     * @param colAccept - inteiro contendo a coluna aceita.
+     * @return lineAccept - inteiro indicando a linha do menor quociente.
      */
     public int firstDotThree(int colAccept){
         BigDecimal LessQ= new BigDecimal(Integer.MAX_VALUE);
@@ -73,9 +76,11 @@ public class Fases extends Table {
         System.out.println("line"  + lineAccept) ;
         return lineAccept;
     }
+    
+    
     /**
-     * verifica a coluna do elemento positivo
-     * @return coluna do elemento positivo
+     * Verifica a coluna do elemento positivo.
+     * @return colAccpt - inteiro indicando a coluna do elemento positivo.
      */
     public int secondDotOne(){
         int colAccpt = -1;
@@ -88,11 +93,11 @@ public class Fases extends Table {
         return colAccpt;
     }
 
+
     /**
-     *
-     * segunda fase da segunda parte aonde se busca a linha permitida na coluna escolhida anterior mente
-     * @param colAccept coluna permitida
-     * @return linha permitida
+     * Segunda fase da segunda parte, busca a linha permitida na coluna escolhida anteriormente.
+     * @param colAccept - inteiro indicando a coluna permitida a ser avaliada.
+     * @return lineAccept - inteiro contendo a linha permitida.
      */
     public int secondDotTwo(int colAccept){
         int lineAccept=-1;
@@ -104,10 +109,11 @@ public class Fases extends Table {
         return lineAccept;
     }
 
+
     /**
-     * verifica se a linha escolhida possui o menor quociente entre os membros livre
-     * @param colAccpt coluna permitida
-     * @return linha aonde possui a menor quociente
+     * Verifica se a linha escolhida possui o menor quociente entre os membros livres.
+     * @param colAccpt - inteiro indicando a coluna permitida a ser analisada.
+     * @return lineAccept - inteiro indicando a linha que possui o menor quociente.
      */
     public int SecondDotThree(int colAccpt){
         int lineAccept=-1;
@@ -131,13 +137,14 @@ public class Fases extends Table {
 
     }
 
+
     /**
-     * Troca entre a variavel basica e a variavel não basica
-     * @param line linha do elemento encontrado na primeira fase
-     * @param col coluna do elemento encontrado na primeira fase
-     * @return fase com as variaves trocadas
+     * Troca entre a variavel basica e a variavel nao basica.
+     * @param line - inteiro indicando a linha do elemento encontrado na primeira fase.
+     * @param col - inteiro indicando a coluna do elemento encontrado na primeira fase.
+     * @return newTable - Objeto do tipo Fases com as variaves trocadas.
      */
-    public Fases changePostion( int line, int col){
+    public Fases changePostion(int line, int col){
         Fases newTable= new Fases();
         newTable.setMatrix(matrix,bVar,nbVar);
         int BVar = bVar[line];

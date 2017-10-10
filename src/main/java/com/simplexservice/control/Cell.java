@@ -1,10 +1,11 @@
 package com.simplexservice.control;
 
 import java.math.BigDecimal;
-/*
-* Estrutura da celula da matriz
-*
-* */
+
+/**
+ * Estrutura da celula da matriz
+ * 
+ **/ 
 public class Cell {
 
     private Boolean AceptCell;
@@ -13,31 +14,47 @@ public class Cell {
     private BigDecimal CellSup;
     private BigDecimal CellInf;
 
+	
+	/**
+	 * Construtor que inicializa todos os atributos da celula.
+	 * */
     public Cell(BigDecimal CellSup,BigDecimal CellInf){
-    this.CellSup=CellSup;
-    this.CellInf=CellInf;
-    this.ChkCellInf= false;
-    this.ChkCellSup=false;
-    this.AceptCell=false;
+		this.CellSup=CellSup;
+		this.CellInf=CellInf;
+		this.ChkCellInf= false;
+		this.ChkCellSup=false;
+		this.AceptCell=false;
     }
+    
+    
+    /**
+     * Construtor padrao.
+     * */
     public Cell(){
         this.ChkCellInf= false;
         this.ChkCellSup=false;
         this.AceptCell=false;
     }
-    //is
+    
+    
+    /**
+     * Verifica celulas.
+     * */
     public Boolean isAceptCell() {
         return AceptCell;
     }
+
 
     public Boolean isChkCellInf() {
         return ChkCellInf;
     }
 
+
     public Boolean isChkCellSup() {
         return ChkCellSup;
     }
-//get
+    
+/** Getters and Setters */
     public BigDecimal getCellInf() {
         return CellInf;
     }
@@ -45,7 +62,7 @@ public class Cell {
     public BigDecimal getCellSup() {
         return CellSup;
     }
-//set
+    
     public void setAceptCell(Boolean aceptCell) {
 
     }
