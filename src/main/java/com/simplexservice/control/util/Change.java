@@ -3,8 +3,10 @@ package com.simplexservice.control.util;
 import com.simplexservice.control.Cell;
 import com.simplexservice.control.Table;
 
+import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 
 public final class Change {
 
@@ -37,9 +39,31 @@ public final class Change {
             System.out.println(" ");
         }
     }
-    public static BigDecimal[] toGheter(BigDecimal a, BigDecimal[] b ){
-        BigDecimal[] c=new BigDecimal[]{a};
-        BigDecimal[] concat=new BigDecimal[c.length+b.length];
-        return concat;
+    public static BigDecimal[] toGheter(BigDecimal[] a, BigDecimal[] b ){
+        int tamanhoA = a.length;
+        int tamanhoB = b.length;
+        BigDecimal[] c = new BigDecimal[tamanhoA + tamanhoB];
+        System.arraycopy(a,0,c,0,tamanhoA);
+        System.arraycopy(c,0,c,tamanhoA,tamanhoB);
+        return c;
+    }
+    public static String[] deleteEmpty(String[]empty){
+
+        int count=0;
+        for(int i=0;i<empty.length;i++){
+            if(!empty[i].equals("")){
+                count++;
+            }
+        }
+
+        String[] aux= new String[count];
+        count=0;
+        for(int i=0;i<empty.length;i++){
+            if(!empty[i].equals("")){
+                aux[count]=empty[i];
+                count++;
+            }
+        }
+        return aux;
     }
 }

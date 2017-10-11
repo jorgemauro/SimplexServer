@@ -31,19 +31,19 @@
 				</p>
 				<div class="input-field col s6">
 					<label for="funcoes">Digite a função objetiva</label>
-					<input id="funcoes" placeholder="Ex: 80x1+60x2=0" name = "funcoes" type="text" class="validate" size = "2" required = "true"/>
+					<input id="funcoes" placeholder="Ex: 80x+60z=0" name = "funcoes" type="text" class="validate" size = "2" required = "true"/>
 				</div>
-                    <div id="n_restricao" name="n_restricao" /></div>
+                    <input id="n_restricao" name="n_restricao" value=1 style="display: none" />
                 <div class="input-field col s6" id="R">
                     <label for="restricoes.1">Restrições: </label><i class="small material-icons  tooltipped alerta" id="alert"data-position="bottom" data-delay="50" data-tooltip="Para adicionar restrições clique no botão de adicionar">error_outline</i>
-                    <input id="restricoes.1" name="restricoes.1" type="text" class="validate restrict" size = "2" required = "true"/>
+                    <input id="restricoes.1" name="restricoes" type="text" class="validate restrict" size = "2" required = "true"/>
 				</div>
                     <div class="row">
                 <a class="btn-floating btn-large waves-effect waves-light cyan darken-3" id="adiciona"><i class="material-icons">add</i></a>
                     </div>
-                <input type = "submit" name = "button" value = "Executar semplex" class="waves-effect waves-light btn center-align  cyan darken-3 valign-wrapper" id = "button">
+                <input type = "submit" name = "button" value = "Executar simplex" class="waves-effect waves-light btn center-align  cyan darken-3 valign-wrapper" id = "button">
+				</div>
 			</form>
-            </div>
     </div>
 
 		<!--Import jQuery before materialize.js-->
