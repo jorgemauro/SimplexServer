@@ -39,14 +39,6 @@ public final class Change {
             System.out.println(" ");
         }
     }
-    public static BigDecimal[] toGheter(BigDecimal[] a, BigDecimal[] b ){
-        int tamanhoA = a.length;
-        int tamanhoB = b.length;
-        BigDecimal[] c = new BigDecimal[tamanhoA + tamanhoB];
-        System.arraycopy(a,0,c,0,tamanhoA);
-        System.arraycopy(c,0,c,tamanhoA,tamanhoB);
-        return c;
-    }
     public static String[] deleteEmpty(String[]empty){
 
         int count=0;

@@ -119,7 +119,6 @@ public class Fases extends Table {
         int lineAccept=-1;
         BigDecimal lessQ= new BigDecimal(Integer.MAX_VALUE);
         BigDecimal actQ= new BigDecimal(0);
-
         for (int i=0;i<matrix.length;i++){
             BigDecimal mLchoose=matrix[i][colML].getCellSup();
             BigDecimal colAcceptChoose=matrix[i][colAccpt].getCellSup();
